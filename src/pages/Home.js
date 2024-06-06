@@ -6,6 +6,13 @@ import ProductCard from "../components/ProductCard";
 import SpecialProduct from "../components/SpecialProduct";
 import Container from "../components/Container";
 import { services } from "../utils/Data";
+import Music1 from "../images/ps5.jpeg"
+import camera from "../images/camera.jpeg"
+import tv from "../images/tv.jpg"
+import music2 from "../images/hd1.jpg"
+import camera2 from "../images/camera1.jpg"
+import tv2 from "../images/tv1.jpg"
+import smartwatch from "../images/hd5.jpeg"
 
 const Home = () => {
   return (
@@ -117,25 +124,25 @@ const Home = () => {
                   <h6>Music and Gaming</h6>
                   <p>10 Items</p>
                 </div>
-                <img src="images/music1.jpg" height="100px" width="100px" alt="" />
+                <img src={Music1} height="100px" width="100px" alt="" />
               </div>
               <div className="d-flex align-items-center ">
                 <div>
-                  <h6>Camrea</h6>
+                  <h6>Camera</h6>
                   <p>10 Items</p>
                 </div>
-                <img src="images/camera.jpg" alt="" />
+                <img src={camera} alt="" />
               </div>
               <div className="d-flex align-items-center ">
                 <div>
                   <h6>Smart Tv</h6>
                   <p>10 Items</p>
                 </div>
-                <img src="images/tv.jpg" alt="" />
+                <img src={tv} alt="" />
               </div>
               <div className="d-flex align-items-center ">
                 <div>
-                  <h6>Smart Watches</h6>
+                  <h6>Headphones</h6>
                   <p>10 Items</p>
                 </div>
                 <img src="images/headphone.jpg" alt="" />
@@ -145,28 +152,28 @@ const Home = () => {
                   <h6>Music and Gaming</h6>
                   <p>10 Items</p>
                 </div>
-                <img src="images/music2.jpg" height="100px" width="100px" alt="" />
+                <img src={music2} height="100px" width="100px" alt="" />
               </div>
               <div className="d-flex align-items-center ">
                 <div>
-                  <h6>Camrea</h6>
+                  <h6>Camera</h6>
                   <p>10 Items</p>
                 </div>
-                <img src="images/camera1.jpg" height="100px" width="150px" alt="" />
+                <img src={camera2} height="100px" width="150px" alt="" />
               </div>
               <div className="d-flex align-items-center ">
                 <div>
                   <h6>Smart Tv</h6>
                   <p>10 Items</p>
                 </div>
-                <img src="images/tv1.jpg" height="100px" width="120px" alt="" />
+                <img src={tv2} height="100px" width="120px" alt="" />
               </div>
               <div className="d-flex align-items-center ">
                 <div>
                   <h6>Smart Watches</h6>
                   <p>10 Items</p>
                 </div>
-                <img src="images/hd1.jpg" height="100px" width="120px"  alt="" />
+                <img src={smartwatch} height="100px" width="120px"  alt="" />
               </div>
             </div>
           </div>

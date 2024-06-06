@@ -1,330 +1,475 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import Marquee from "react-fast-marquee";
-import BlogCard from "../components/BlogCard";
-import ProductCard from "../components/ProductCard";
-import SpecialProduct from "../components/SpecialProduct";
-import Container from "../components/Container";
-import { services } from "../utils/Data";
+import ReactStars from "react-rating-stars-component";
+import { Link, useLocation } from "react-router-dom";
+import watch from '../images/watch.jpg'
+import watch2 from '../images/watch2.jpg'
+import watch3 from '../images/watch3.jpg'
+import phone1 from '../images/phone1.jpg'
+import phone2 from '../images/phone2.jpg'
+import watch4 from '../images/watch4.jpg'
+import hd2 from '../images/hd2.jpg'
+import hd3 from '../images/hd3.jpg'
+import addcart from '../images/add-cart.svg'
+import view from '../images/view.svg'
+import wish from '../images/wish.svg'
+import prodcompare from '../images/prodcompare.svg'
+import camera_featrued1 from '../images/camera-featured1.jpg'
+import camera_featrued from '../images/cd.jpg'
+import headphone_featured from '../images/headphone_featured.jpg'
+import headphone_featured1 from '../images/headphone_featured1.jpg'
+import smart_tv_featured1 from '../images/smart_tv_featured1.jpg'
+import smart_tv_featured from '../images/smart_tv_featured.jpg'
+import smartphone_featured from '../images/samrtphone_featured.jpg'
+import smartphone_featured1 from '../images/samrtphone_featured1.jpg'
 
-const Home = () => {
+const ProductCard = (props) => {
+  const { grid } = props;
+  let location = useLocation();
+
   return (
     <>
-      <Container class1="home-wrapper-1 py-5">
-        <div className="row">
-          <div className="col-6">
-            <div className="main-banner position-relative">
-              <img
-                src="images/main-banner-1.jpg"
-                className="img-fluid rounded-3"
-                alt="main-banner"
-              />
-              <div className="main-banner-content position-absolute">
-                <h4>SUPERCHARGED FOR PROS.</h4>
-                <h5>iPad s13+Pro</h5>
-                <p>
-                  From $999 <br /> or $41.62/mo.
-                </p>
-                <Link className="button">BUY NOW</Link>
-              </div>
+      <div className={` ${location.pathname == "/product" ? `gr-${grid}` : "col-3"}`}>
+        <Link to={`${location.pathname == '/' ? '/product/:id' :
+          location.pathname == '/product/:id' ? '/product/:id' : ':id'}`} className="product-card position-relative" >
+          <div className="wishlist-icon position-absolute">
+            <button className="border-0 bg-transparent">
+              <img src={wish} alt="wishlist" />
+            </button>
+          </div>
+          <div className="product-image">
+            <img
+              src={watch}
+              className="img-fluid"
+              alt="product image"
+            />
+            <img
+              src={watch2}
+              className="img-fluid"
+              alt="product image"
+            />
+          </div>
+          <div className="product-details">
+            <h6 className="brand">Havells</h6>
+            <h5 className="product-title">
+              Kids headphones bulk 10 pack multi colored for students
+            </h5>
+            <ReactStars
+              count={5}
+              size={24}
+              value={4}
+              edit={false}
+              activeColor="#ffd700"
+            />
+            <p className={`description ${grid === 12 ? "d-block" : "d-none"}`}>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellat
+              quisquam aspernatur quas molestias vitae, nam officiis iusto
+              corporis sint. Voluptatibus magnam quia ducimus consequuntur.
+            </p>
+            <p className="price">$100.0</p>
+          </div>
+          <div className="action-bar position-absolute">
+            <div className="d-flex flex-column gap-15">
+              <button className="border-0 bg-transparent">
+                <img src={prodcompare} alt="compare" />
+              </button>
+              <button className="border-0 bg-transparent">
+                <img src={view} alt="view" />
+              </button>
+              <button className="border-0 bg-transparent">
+                <img src={addcart} alt="add" />
+              </button>
             </div>
           </div>
-          <div className="col-6">
-            <div className="d-flex flex-wrap justify-content-between align-items-center gap-10">
-              <div className="small-banner position-relative ">
-                <img
-                  src="images/catbanner-01.jpg"
-                  className="img-fluid rounded-3"
-                  alt="main-banner"
-                />
-                <div className="small-banner-content position-absolute">
-                  <h4>Best Sale</h4>
-                  <h5>iPad S13+Pro.</h5>
-                  <p>
-                    From $999 <br /> or $41.62/mo.
-                  </p>
-                </div>
-              </div>
-              <div className="small-banner position-relative ">
-                <img
-                  src="images/catbanner-02.jpg"
-                  className="img-fluid rounded-3"
-                  alt="main-banner"
-                />
-                <div className="small-banner-content position-absolute">
-                  <h4>NEW ARRIVAL</h4>
-                  <h5>iPad Air</h5>
-                  <p>
-                    From $999 <br /> or $41.62/mo.
-                  </p>
-                </div>
-              </div>
-              <div className="small-banner position-relative">
-                <img
-                  src="images/catbanner-03.jpg"
-                  className="img-fluid rounded-3"
-                  alt="main-banner"
-                />
-                <div className="small-banner-content position-absolute">
-                  <h4>NEW ARRIVAL</h4>
-                  <h5>iPad s13+Pro</h5>
-                  <p>
-                    From $999 <br /> or $41.62/mo.
-                  </p>
-                </div>
-              </div>
-              <div className="small-banner position-relative ">
-                <img
-                  src="images/catbanner-04.jpg"
-                  className="img-fluid rounded-3"
-                  alt="main-banner"
-                />
-                <div className="small-banner-content position-absolute">
-                  <h4>NEW ARRIVAL</h4>
-                  <h5>iPad s13+Pro</h5>
-                  <p>From $999 or $41.62/mo.</p>
-                </div>
-              </div>
+        </Link>
+      </div>
+
+      <div className={` ${location.pathname == "/product" ? `gr-${grid}` : "col-3"}`}>
+        <Link to={`${location.pathname == '/' ? '/product/:id' :
+          location.pathname == '/product/:id' ? '/product/:id' : ':id'}`} className="product-card position-relative" >
+          <div className="wishlist-icon position-absolute">
+            <button className="border-0 bg-transparent">
+              <img src={wish} alt="wishlist" />
+            </button>
+          </div>
+          <div className="product-image">
+            <img
+              src={camera_featrued1}
+              className="img-fluid"
+              alt="product image"
+            />
+            <img
+              src={camera_featrued}
+              className="img-fluid"
+              alt="product image"
+            />
+          </div>
+          <div className="product-details">
+            <h6 className="brand">Havells</h6>
+            <h5 className="product-title">
+              Kids headphones bulk 10 pack multi colored for students
+            </h5>
+            <ReactStars
+              count={5}
+              size={24}
+              value={4}
+              edit={false}
+              activeColor="#ffd700"
+            />
+            <p className={`description ${grid === 12 ? "d-block" : "d-none"}`}>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellat
+              quisquam aspernatur quas molestias vitae, nam officiis iusto
+              corporis sint. Voluptatibus magnam quia ducimus consequuntur.
+            </p>
+            <p className="price">$100.0</p>
+          </div>
+          <div className="action-bar position-absolute">
+            <div className="d-flex flex-column gap-15">
+              <button className="border-0 bg-transparent">
+                <img src={prodcompare} alt="compare" />
+              </button>
+              <button className="border-0 bg-transparent">
+                <img src={view} alt="view" />
+              </button>
+              <button className="border-0 bg-transparent">
+                <img src={addcart} alt="add" />
+              </button>
             </div>
           </div>
-        </div>
-      </Container>
-      <Container class1="home-wrapper-2 py-5">
-        <div className="row">
-          <div className="col-12">
-            <div className="services d-flex align-items-center justify-content-between">
-              {services?.map((i, image) => {
-                return (
-                  <div className="d-flex align-items-center gap-15" key={image}>
-                    <img src="images/service-05.png" alt="services" />
-                    <div>
-                      <h6>{i.title}</h6>
-                      <p className="mb-0">{i.tagline}</p>
-                    </div>
-                  </div>
-                );
-              })}
+        </Link>
+      </div>
+
+      <div className={` ${location.pathname == "/product" ? `gr-${grid}` : "col-3"}`}>
+        <Link to={`${location.pathname == '/' ? '/product/:id' :
+          location.pathname == '/product/:id' ? '/product/:id' : ':id'}`} className="product-card position-relative" >
+          <div className="wishlist-icon position-absolute">
+            <button className="border-0 bg-transparent">
+              <img src={wish} alt="wishlist" />
+            </button>
+          </div>
+          <div className="product-image">
+            <img
+              src={headphone_featured}
+              className="img-fluid"
+              alt="product image"
+            />
+            <img
+              src={headphone_featured1}
+              className="img-fluid"
+              alt="product image"
+            />
+          </div>
+          <div className="product-details">
+            <h6 className="brand">Havells</h6>
+            <h5 className="product-title">
+              Kids headphones bulk 10 pack multi colored for students
+            </h5>
+            <ReactStars
+              count={5}
+              size={24}
+              value={4}
+              edit={false}
+              activeColor="#ffd700"
+            />
+            <p className={`description ${grid === 12 ? "d-block" : "d-none"}`}>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellat
+              quisquam aspernatur quas molestias vitae, nam officiis iusto
+              corporis sint. Voluptatibus magnam quia ducimus consequuntur.
+            </p>
+            <p className="price">$100.0</p>
+          </div>
+          <div className="action-bar position-absolute">
+            <div className="d-flex flex-column gap-15">
+              <button className="border-0 bg-transparent">
+                <img src={prodcompare} alt="compare" />
+              </button>
+              <button className="border-0 bg-transparent">
+                <img src={view} alt="view" />
+              </button>
+              <button className="border-0 bg-transparent">
+                <img src={addcart} alt="add" />
+              </button>
             </div>
           </div>
-        </div>
-      </Container>
-      <Container class1="section-home-wrapper-2 py-5">
-        <div className="row">
-          <div className="col-12">
-            <div className="categories d-flex flex-wrap justify-content-center align-items-center">
-              <div className="d-flex align-items-center ">
-                <div>
-                  <h6>Music and Gaming</h6>
-                  <p>10 Items</p>
-                </div>
-                <img src="images/music1.jpg" height="100px" width="100px" alt="" />
-              </div>
-              <div className="d-flex align-items-center ">
-                <div>
-                  <h6>Camrea</h6>
-                  <p>10 Items</p>
-                </div>
-                <img src="images/camera.jpg" alt="" />
-              </div>
-              <div className="d-flex align-items-center ">
-                <div>
-                  <h6>Smart Tv</h6>
-                  <p>10 Items</p>
-                </div>
-                <img src="images/tv.jpg" alt="" />
-              </div>
-              <div className="d-flex align-items-center ">
-                <div>
-                  <h6>Smart Watches</h6>
-                  <p>10 Items</p>
-                </div>
-                <img src="images/headphone.jpg" alt="" />
-              </div>
-              <div className="d-flex align-items-center ">
-                <div>
-                  <h6>Music and Gaming</h6>
-                  <p>10 Items</p>
-                </div>
-                <img src="images/music2.jpg" height="100px" width="100px" alt="" />
-              </div>
-              <div className="d-flex align-items-center ">
-                <div>
-                  <h6>Camrea</h6>
-                  <p>10 Items</p>
-                </div>
-                <img src="images/camera1.jpg" height="100px" width="150px" alt="" />
-              </div>
-              <div className="d-flex align-items-center ">
-                <div>
-                  <h6>Smart Tv</h6>
-                  <p>10 Items</p>
-                </div>
-                <img src="images/tv1.jpg" height="100px" width="120px" alt="" />
-              </div>
-              <div className="d-flex align-items-center ">
-                <div>
-                  <h6>Smart Watches</h6>
-                  <p>10 Items</p>
-                </div>
-                <img src="images/hd1.jpg" height="100px" width="120px"  alt="" />
-              </div>
+        </Link>
+      </div>
+
+      <div className={` ${location.pathname == "/product" ? `gr-${grid}` : "col-3"}`}>
+        <Link to={`${location.pathname == '/' ? '/product/:id' :
+          location.pathname == '/product/:id' ? '/product/:id' : ':id'}`} className="product-card position-relative" >
+          <div className="wishlist-icon position-absolute">
+            <button className="border-0 bg-transparent">
+              <img src={wish} alt="wishlist" />
+            </button>
+          </div>
+          <div className="product-image">
+            <img
+              src={smart_tv_featured1}
+              className="img-fluid"
+              alt="product image"
+            />
+            <img
+              src={smart_tv_featured}
+              className="img-fluid"
+              alt="product image"
+            />
+          </div>
+          <div className="product-details">
+            <h6 className="brand">Havells</h6>
+            <h5 className="product-title">
+              Kids headphones bulk 10 pack multi colored for students
+            </h5>
+            <ReactStars
+              count={5}
+              size={24}
+              value={4}
+              edit={false}
+              activeColor="#ffd700"
+            />
+            <p className={`description ${grid === 12 ? "d-block" : "d-none"}`}>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellat
+              quisquam aspernatur quas molestias vitae, nam officiis iusto
+              corporis sint. Voluptatibus magnam quia ducimus consequuntur.
+            </p>
+            <p className="price">$100.0</p>
+          </div>
+          <div className="action-bar position-absolute">
+            <div className="d-flex flex-column gap-15">
+              <button className="border-0 bg-transparent">
+                <img src={prodcompare} alt="compare" />
+              </button>
+              <button className="border-0 bg-transparent">
+                <img src={view} alt="view" />
+              </button>
+              <button className="border-0 bg-transparent">
+                <img src={addcart} alt="add" />
+              </button>
             </div>
           </div>
-        </div>
-      </Container>
-      <Container class1="featured-wrapper py-5 home-wrapper-2">
-        <div className="row">
-          <div className="col-12">
-            <h3 className="section-heading">Featured Collections</h3>
+        </Link>
+      </div>
+
+      <div className={` ${location.pathname == "/product" ? `gr-${grid}` : "col-3"}`}>
+        <Link to={`${location.pathname == '/' ? '/product/:id' :
+          location.pathname == '/product/:id' ? '/product/:id' : ':id'}`} className="product-card position-relative" >
+          <div className="wishlist-icon position-absolute">
+            <button className="border-0 bg-transparent">
+              <img src={wish} alt="wishlist" />
+            </button>
           </div>
-          <ProductCard />
-        </div>
-      </Container>
-      <Container class1="famous-wrapper py-5 home-wrapper-2">
-        <div className="row">
-          <div className="col-3">
-            <div className="famous-card position-relative">
-              <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKR8lZhHgZxWXA2ucQ1c2qwJTl70IrqSHH0g&s"
-                width="300px"
-                height="350px"
-                className="img-fluid"
-                alt="watch"
-              />
-              <div className="famous-content position-absolute">
-                <h5>Big Screen</h5>
-                <h6>Smart Watch Series 7</h6>
-                <p>From $399 0r $16.62/mo for 24 mo.</p>
-              </div>
+          <div className="product-image">
+            <img
+              src={smartphone_featured}
+              className="img-fluid"
+              alt="product image"
+            />
+            <img
+              src={smartphone_featured1}
+              className="img-fluid"
+              alt="product image"
+            />
+          </div>
+          <div className="product-details">
+            <h6 className="brand">Havells</h6>
+            <h5 className="product-title">
+              Kids headphones bulk 10 pack multi colored for students
+            </h5>
+            <ReactStars
+              count={5}
+              size={24}
+              value={4}
+              edit={false}
+              activeColor="#ffd700"
+            />
+            <p className={`description ${grid === 12 ? "d-block" : "d-none"}`}>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellat
+              quisquam aspernatur quas molestias vitae, nam officiis iusto
+              corporis sint. Voluptatibus magnam quia ducimus consequuntur.
+            </p>
+            <p className="price">$100.0</p>
+          </div>
+          <div className="action-bar position-absolute">
+            <div className="d-flex flex-column gap-15">
+              <button className="border-0 bg-transparent">
+                <img src={prodcompare} alt="compare" />
+              </button>
+              <button className="border-0 bg-transparent">
+                <img src={view} alt="view" />
+              </button>
+              <button className="border-0 bg-transparent">
+                <img src={addcart} alt="add" />
+              </button>
             </div>
           </div>
-          <div className="col-3">
-            <div className="famous-card position-relative">
-              <img
-                src="https://img.freepik.com/premium-photo/headphones-isolated-black-background_335640-1992.jpg?w=360"
-                width="320px"
-                height="350px"
-                className="img-fluid"
-                alt="watch"
-              />
-              <div className="famous-content position-absolute">
-                <h5>Big Screen</h5>
-                <h6>HeadPhone Series</h6>
-                <p>From $399 0r $16.62/mo for 24 mo.</p>
-              </div>
+        </Link>
+      </div>
+
+      <div className={` ${location.pathname == "/product" ? `gr-${grid}` : "col-3"}`}>
+        <Link to={`${location.pathname == '/' ? '/product/:id' :
+          location.pathname == '/product/:id' ? '/product/:id' : ':id'}`} className="product-card position-relative" >
+          <div className="wishlist-icon position-absolute">
+            <button className="border-0 bg-transparent">
+              <img src={wish} alt="wishlist" />
+            </button>
+          </div>
+          <div className="product-image">
+            <img
+              src={watch3}
+              className="img-fluid"
+              alt="product image"
+            />
+            <img
+              src={watch4}
+              className="img-fluid"
+              alt="product image"
+            />
+          </div>
+          <div className="product-details">
+            <h6 className="brand">Havells</h6>
+            <h5 className="product-title">
+              Kids headphones bulk 10 pack multi colored for students
+            </h5>
+            <ReactStars
+              count={5}
+              size={24}
+              value={4}
+              edit={false}
+              activeColor="#ffd700"
+            />
+            <p className={`description ${grid === 12 ? "d-block" : "d-none"}`}>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellat
+              quisquam aspernatur quas molestias vitae, nam officiis iusto
+              corporis sint. Voluptatibus magnam quia ducimus consequuntur.
+            </p>
+            <p className="price">$100.0</p>
+          </div>
+          <div className="action-bar position-absolute">
+            <div className="d-flex flex-column gap-15">
+              <button className="border-0 bg-transparent">
+                <img src={prodcompare} alt="compare" />
+              </button>
+              <button className="border-0 bg-transparent">
+                <img src={view} alt="view" />
+              </button>
+              <button className="border-0 bg-transparent">
+                <img src={addcart} alt="add" />
+              </button>
             </div>
           </div>
-          <div className="col-3">
-            <div className="famous-card position-relative">
-              <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKR8lZhHgZxWXA2ucQ1c2qwJTl70IrqSHH0g&s"
-                width={320}
-                height={200}
-                className="img-fluid"
-                alt="watch"
-              />
-              <div className="famous-content position-absolute">
-                <h5>Big Screen</h5>
-                <h6>HeadPhone Series </h6>
-                <p>From $399 0r $16.62/mo for 24 mo.</p>
-              </div>
+        </Link>
+      </div>
+
+      <div className={` ${location.pathname == "/product" ? `gr-${grid}` : "col-3"}`}>
+        <Link to={`${location.pathname == '/' ? '/product/:id' :
+          location.pathname == '/product/:id' ? '/product/:id' : ':id'}`} className="product-card position-relative" >
+          <div className="wishlist-icon position-absolute">
+            <button className="border-0 bg-transparent">
+              <img src={wish} alt="wishlist" />
+            </button>
+          </div>
+          <div className="product-image">
+            <img
+              src={phone1}
+              className="img-fluid"
+              alt="product image"
+            />
+            <img
+              src={phone2}
+              className="img-fluid"
+              alt="product image"
+            />
+          </div>
+          <div className="product-details">
+            <h6 className="brand">Havells</h6>
+            <h5 className="product-title">
+              Kids headphones bulk 10 pack multi colored for students
+            </h5>
+            <ReactStars
+              count={5}
+              size={24}
+              value={4}
+              edit={false}
+              activeColor="#ffd700"
+            />
+            <p className={`description ${grid === 12 ? "d-block" : "d-none"}`}>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellat
+              quisquam aspernatur quas molestias vitae, nam officiis iusto
+              corporis sint. Voluptatibus magnam quia ducimus consequuntur.
+            </p>
+            <p className="price">$100.0</p>
+          </div>
+          <div className="action-bar position-absolute">
+            <div className="d-flex flex-column gap-15">
+              <button className="border-0 bg-transparent">
+                <img src={prodcompare} alt="compare" />
+              </button>
+              <button className="border-0 bg-transparent">
+                <img src={view} alt="view" />
+              </button>
+              <button className="border-0 bg-transparent">
+                <img src={addcart} alt="add" />
+              </button>
             </div>
           </div>
-          <div className="col-3">
-            <div className="famous-card position-relative">
-              <img
-                src="https://img.freepik.com/premium-photo/headphones-isolated-black-background_335640-1992.jpg?w=360"
-                height="350px"
-                className="img-fluid"
-                alt="watch"
-              />
-              <div className="famous-content position-absolute">
-                <h5>Big Screen</h5>
-                <h6>Smart Watch Series 7</h6>
-                <p>From $399 0r $16.62/mo for 24 mo.</p>
-              </div>
+        </Link>
+      </div>
+
+
+      <div className={` ${location.pathname == "/product" ? `gr-${grid}` : "col-3"}`}>
+        <Link to={`${location.pathname == '/' ? '/product/:id' :
+          location.pathname == '/product/:id' ? '/product/:id' : ':id'}`} className="product-card position-relative" >
+          <div className="wishlist-icon position-absolute">
+            <Link>
+              <img src={wish} alt="wishlist" />
+            </Link>
+          </div>
+          <div className="product-image">
+            <img
+              src={hd2}
+              className="img-fluid"
+              alt="product image"
+            />
+            <img
+              src={hd3}
+              className="img-fluid"
+              alt="product image"
+            />
+          </div>
+          <div className="product-details">
+            <h6 className="brand">Havells</h6>
+            <h5 className="product-title">
+              Kids headphones bulk 10 pack multi colored for students
+            </h5>
+            <ReactStars
+              count={5}
+              size={24}
+              value={4}
+              edit={false}
+              activeColor="#ffd700"
+            />
+            <p className={`description ${grid === 12 ? "d-block" : "d-none"}`}>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellat
+              quisquam aspernatur quas molestias vitae, nam officiis iusto
+              corporis sint. Voluptatibus magnam quia ducimus consequuntur.
+            </p>
+            <p className="price">$100.0</p>
+          </div>
+          <div className="action-bar position-absolute">
+            <div className="d-flex flex-column gap-15">
+              <button className="border-0 bg-transparent">
+                <img src={prodcompare} alt="compare" />
+              </button>
+              <button className="border-0 bg-transparent">
+                <img src={view} alt="view" />
+              </button>
+              <button className="border-0 bg-transparent">
+                <img src={addcart} alt="add" />
+              </button>
             </div>
           </div>
-        </div>
-      </Container>
-      <Container class1="special-wrapper py-5 home-wrapper-2">
-        <div className="row">
-          <div className="col-12">
-            <h3 className="section-heading">Special Products</h3>
-          </div>
-          <div className="row ">
-            <SpecialProduct />
-            <SpecialProduct />
-            <SpecialProduct />
-          </div>
-        </div>
-      </Container>
-      <Container class1="popular-wrapper py-5 home-wrapper-2">
-        <div className="row">
-          <div className="col-12">
-            <h3 className="section-heading"> Our Popular Product</h3>
-          </div>
-        </div>
-      </Container>
-      <Container class1="marquee-wrapper home-wrapper-2 py-5">
-        <div className="row">
-          <div className="col-12">
-            <div className="marque-inner-wrapper bg-white p-3 card-wrapper">
-              <Marquee className="d-dlex">
-                <div className="mx-4 w-25">
-                  <img src="images/brand-01.png" alt="brand" />
-                </div>
-                <div className="mx-4 w-25">
-                  <img src="images/brand-02.png" alt="brand" />
-                </div>
-                <div className="mx-4 w-25">
-                  <img src="images/brand-03.png" alt="brand" />
-                </div>
-                <div className="mx-4 w-25">
-                  <img src="images/brand-04.png" alt="brand" />
-                </div>
-                <div className="mx-4 w-25">
-                  <img src="images/brand-05.png" alt="brand" />
-                </div>
-                <div className="mx-4 w-25">
-                  <img src="images/brand-06.png" alt="brand" />
-                </div>
-                <div className="mx-4 w-25">
-                  <img src="images/brand-07.png" alt="brand" />
-                </div>
-                <div className="mx-4 w-25">
-                  <img src="images/brand-08.png" alt="brand" />
-                </div>
-              </Marquee>
-            </div>
-          </div>
-        </div>
-      </Container>
-      <Container class1="blog-wrapper py-5 home-wrapper-2">
-        <div className="container-xxl">
-          <div className="row">
-            <div className="col-12">
-              <h3 className="section-heading">Our Latest Blogs</h3>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-3">
-              <BlogCard />
-            </div>
-            <div className="col-3">
-              <BlogCard />
-            </div>
-            <div className="col-3">
-              <BlogCard />
-            </div>
-            <div className="col-3">
-              <BlogCard />
-            </div>
-          </div>
-        </div>
-      </Container>
+        </Link>
+      </div>
     </>
   );
 };
 
-export default Home;
+export default ProductCard;
