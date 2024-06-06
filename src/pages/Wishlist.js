@@ -41,7 +41,7 @@ const Wishlist = () => {
               />
               <div className="wishlist-card-image">
                 <img
-                  src="images/watch.jpg"
+                  src="images/samrtphone_featured.jpg"
                   className="img-fluid w-100"
                   alt="watch"
                 />
@@ -63,7 +63,7 @@ const Wishlist = () => {
               />
               <div className="wishlist-card-image">
                 <img
-                  src="images/watch.jpg"
+                  src="images/camera-featured1.jpg"
                   className="img-fluid w-100"
                   alt="watch"
                 />
